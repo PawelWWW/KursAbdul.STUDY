@@ -13,12 +13,13 @@ arrayADT<type, size>::arrayADT(const arrayADT<type, size> &other) {
 }
 
 template<typename type, int size>
-type& arrayADT<type, size>::operator[](unsigned int index) const{
-    return data[index];
+type& arrayADT<type, size>::operator[](size_t index) const{
+    if (index < length) return data[index];
+    else throw std::out_of_range("index out of range");
 }
 
 template<typename type, int size>
-type arrayADT<type, size>::erase(unsigned int index) {
+type arrayADT<type, size>::erase(size_t index) {
     type x = data[index];
     if (index<length) { // unsigned int wiec zawsze wiekszy lub rowny 0
         for (unsigned int i = index ; i < length-1 ; i++) {
@@ -27,7 +28,7 @@ type arrayADT<type, size>::erase(unsigned int index) {
         length--;
         return x;
     }
-    return x;
+    throw std::out_of_range("Array index out of range");
 }
 template<typename type, int size>
 arrayADT<type, size>::arrayADT() {
@@ -45,11 +46,11 @@ arrayADT<type, size>::arrayADT(std::initializer_list<type> init) {
     length = i;
 }
 template<typename type, int size>
-inline type *arrayADT<type, size>::begin() {
+type *arrayADT<type, size>::begin() {
     return data;
 }
 template<typename type, int size>
-inline type * arrayADT<type, size>::end() {
+type * arrayADT<type, size>::end() {
     return data + length;
 }
 template<typename type, int size>
@@ -58,7 +59,7 @@ arrayADT<type, size>::~arrayADT() {
 }
 
 template<typename type, int size>
-void arrayADT<type, size>::display() {
+void arrayADT<type, size>::display() const {
     for (int i = 0; i < length; i++) {
         std::cout << data[i] << " ";
     }
@@ -73,7 +74,7 @@ void arrayADT<type, size>::append(type ap) {
 }
 
 template<typename type, int size>
-void arrayADT<type, size>::insert(unsigned int index, type t) {
+void arrayADT<type, size>::insert(size_t index, type t) {
     if (index > length || length >= size) return;
     for (int i = length; i > index; i--) {
         data[i] = data[i - 1];
@@ -83,7 +84,7 @@ void arrayADT<type, size>::insert(unsigned int index, type t) {
 }
 
 template<typename type, int size>
-inline int arrayADT<type, size>::getLength() const {
+int arrayADT<type, size>::getLength() const {
     return length;
 }
 

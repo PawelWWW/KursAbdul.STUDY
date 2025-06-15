@@ -2,7 +2,7 @@
 #define ARRAYADT_H
 
 #include <initializer_list>
-
+using size_t = unsigned long long;
 template<typename type, int size>
 class arrayADT {
 private:
@@ -15,14 +15,14 @@ public:
     arrayADT(const arrayADT<type, size> &other);
 
     arrayADT<type, size> &operator=(const arrayADT<type, size> &other);
-    void display();
+    void display() const ;
     void append(type ap);
-    void insert(unsigned int index, type t);
-    type& operator[](unsigned int index) const; // const na koncu musi byc nie modyfikujemy wartosci
-    type erase(unsigned int index);
-    inline type* begin();
-    inline type* end();
-    inline int getLength() const;
+    void insert(size_t index, type t);
+    type& operator[](size_t index) const; // const na koncu musi byc nie modyfikujemy wartosci
+    type erase(size_t index);
+    type* begin();
+    type* end();
+    int getLength() const;
 };
 template<typename type, int size>
 int binarySearch(const arrayADT<type, size> &A, type key) {
