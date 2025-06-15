@@ -1,10 +1,10 @@
 #include "arrayADT.h"
 #include <string>
 #include <iostream>
+#include <algorithm>
+
 using namespace std;
 
-#include <iostream>
-#include <algorithm>
 int main() {
     arrayADT<int, 5> arr = {1, 2, 3};
     arr.display();

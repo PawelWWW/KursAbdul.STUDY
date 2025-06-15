@@ -23,7 +23,6 @@ public:
     inline type* begin();
     inline type* end();
     inline int getLength() const;
-
 };
 template<typename type, int size>
 int binarySearch(const arrayADT<type, size> &A, type key) {
