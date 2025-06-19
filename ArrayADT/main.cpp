@@ -38,5 +38,33 @@ int main() {
     second.display();
     second = first;
     second.display();
+
+    cout << "MAX_OF_SECOND: " << *second.max() << endl;
+    *second.max() = 4;
+    cout << "MAX_OF_SECOND: " << *second.max() << endl;
+
+    cout << "MIN_OF_SECOND: " << *second.min() << endl;
+    *second.min() = 10;
+    cout << "MIN_OF_SECOND: " << *second.min() << endl;
+    second.display();
+    cout << "SUM OF ELEMENTS: " << second.accumulate() << endl; // accumulate(second.begin(), second.end(), [](type a, type b){ return a + b; } );
+
+    cout << average(second)<< endl;
+    second.reverse();
+    second.display();
+
+    arrayADT<int, 5>  newArray_m = {10,9,8,7,12};
+    newArray_m.display();
+    newArray_m.leftShift(1);
+    newArray_m.display();
+    newArray_m.leftShift(1);
+    newArray_m.display();
+    newArray_m.leftShift(2);
+    newArray_m.display();
+
+    arrayADT<int , 5> rotationTest = {10,9,8,7,12};
+    rotationTest.display();
+    rotationTest.rotateLeft(7);
+    rotationTest.display();
     return 0;
 }
