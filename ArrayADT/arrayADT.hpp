@@ -34,6 +34,7 @@ type arrayADT<type, size>::erase(size_t index) {
 template<typename type, int size>
 arrayADT<type, size>::arrayADT() {
     data = new type[size];
+    length = 0;
 }
 
 template<typename type, int size>
@@ -185,8 +186,9 @@ void arrayADT<type, size>::rotateLeft(unsigned int rotate) {
 
 template<typename type, int size>
 bool arrayADT<type, size>::isSorted() const {
-    for (int i = 0 ; i < length ; i++) {
-        if (data[i] > data[i+1]) return false;
+    for (int i = 0 ; i < length-1 ; i++) {
+        if (data[i] > data[i+1])
+            return false;
     }
     return true;
 }

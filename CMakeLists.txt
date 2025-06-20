@@ -9,4 +9,5 @@ add_executable(KursAbdul
         ArrayADT/main.cpp
         ArrayADT/arrayADT.h
         ArrayADT/arrayADT.hpp
+        ArrayADT/StudentChallenges.h
 )

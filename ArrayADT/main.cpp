@@ -1,4 +1,5 @@
 #include "arrayADT.h"
+#include "StudentChallenges.h"
 #include <string>
 #include <iostream>
 #include <algorithm>
@@ -27,11 +28,11 @@ int main() {
     arr.display();
     sort(arr.begin(), arr.end());
     arr.display();
-    cout << binarySearch(arr, 3) << endl; // samo wykrywa ze <int, 5>
+    cout << ADT::binarySearch(arr, 3) << endl; // samo wykrywa ze <int, 5>
 
 
     arrayADT<int, 60> arrBig = {4, 8, 10, 12, 14, 15, 17, 20, 22, 23, 34, 40, 43, 44, 45, 49, 50, 51, 52, 54, 56, 57, 58, 70, 79, 80, 86, 89, 92, 93, 94, 95, 99, 100, 101, 102, 103, 104, 105, 107};
-    cout << binarySearch(arrBig, 12) << endl;
+    cout << ADT::binarySearch(arrBig, 12) << endl;
 
     arrayADT<int, 3> first = {1, 2, 3};
     arrayADT<int, 3> second = {4, 5, 6};
@@ -49,7 +50,7 @@ int main() {
     second.display();
     cout << "SUM OF ELEMENTS: " << second.accumulate() << endl; // accumulate(second.begin(), second.end(), [](type a, type b){ return a + b; } );
 
-    cout << average(second)<< endl;
+    cout << ADT::average(second)<< endl;
     second.reverse();
     second.display();
 
@@ -68,6 +69,11 @@ int main() {
     rotationTest.display();
 
     cout << arrBig.isSorted() << endl;
+
+    arrayADT<int, 5> newArray1_skibidi = {1,2,5,7,9};
+    arrayADT<int, 5> newArray2_skibidi = {3,4,6,8,10};
+    arrayADT<int, 10> skibidi= ADT::merge(newArray1_skibidi, newArray2_skibidi);
+    skibidi.display();
 
 
     return 0;
