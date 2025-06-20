@@ -66,5 +66,9 @@ int main() {
     rotationTest.display();
     rotationTest.rotateLeft(7);
     rotationTest.display();
+
+    cout << arrBig.isSorted() << endl;
+
+
     return 0;
 }

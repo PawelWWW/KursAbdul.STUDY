@@ -162,7 +162,7 @@ void arrayADT<type, size>::leftShift(unsigned int shift) {
             data[i] = data[i + shift];
         }
         else {
-            data[i] = 0;
+            data[i] = type{};
         }
     }
 }
@@ -181,6 +181,14 @@ void arrayADT<type, size>::rotateLeft(unsigned int rotate) {
     for (unsigned int i = length-rotate, j = 0 ; i < length ; i++, j++)
         this->data[i] = temp[j];
     delete[] temp;
+}
+
+template<typename type, int size>
+bool arrayADT<type, size>::isSorted() const {
+    for (int i = 0 ; i < length ; i++) {
+        if (data[i] > data[i+1]) return false;
+    }
+    return true;
 }
 
 

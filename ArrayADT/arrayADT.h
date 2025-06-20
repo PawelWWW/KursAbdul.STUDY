@@ -34,6 +34,9 @@ public:
     void reverse();
     void leftShift(unsigned int shift);
     void rotateLeft(unsigned int rotate);
+
+    bool isSorted() const;
+
 };
 
 template<typename type, int size>
